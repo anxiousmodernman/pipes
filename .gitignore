@@ -1,2 +1,8 @@
 /target
 **/*.rs.bk
+
+# our C binary
+read_forever
+
+# editor/ide stuff
+.idea
