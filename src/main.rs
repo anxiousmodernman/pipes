@@ -36,6 +36,7 @@ fn handle_sigint(sig: usize) {
     let mut ptr: *const i32 = null();
     unsafe {
         let res: pid_t = libc::waitpid(pid as i32, ptr as *mut i32, 0);
+        println!("waitpid: {}", res);
     }
     std::process::exit(42);
 }
