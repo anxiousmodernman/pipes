@@ -8,7 +8,7 @@ use std::sync::atomic::{AtomicU32, Ordering};
 use lazy_static::lazy_static;
 use std::ptr::null;
 
-static  CHILD: AtomicU32 = AtomicU32::new(0);
+static CHILD: AtomicU32 = AtomicU32::new(0);
 
 fn main() {
     let mut writer = Command::new("./write-forever.sh")
@@ -32,10 +32,10 @@ fn handle_sigint(sig: usize) {
     let pid = CHILD.load(Ordering::Relaxed);
     println!("awaiting child pid: {}", pid as i32);
     let mut ptr: i32 = 0;
-        match unsafe { libc::waitpid(pid as i32, &mut ptr, 0) } {
-            -1 =>  println!{ "errno: {}", errno()},
-            pid =>  println!("waitpid: {}", pid)
-        }
+    match unsafe { libc::waitpid(pid as i32, &mut ptr, 0) } {
+        -1 => println! {"errno: {}", errno()},
+        pid => println!("waitpid: {}", pid)
+    }
     std::process::exit(42);
 }
 
