@@ -3,10 +3,14 @@
 #include<stdlib.h>
 #include<signal.h>
 
+void handler(int sig);
+
 int main() {
 
     char buf[256];
     int n;
+
+    signal(SIGINT, handler);
      
     while (1) {
         
@@ -24,4 +28,8 @@ int main() {
         write(STDOUT_FILENO, buf, n);
 
     }
+}
+
+void handler(int sig) {
+    printf("got signal %d", sig);
 }
