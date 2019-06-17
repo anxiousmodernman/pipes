@@ -31,5 +31,5 @@ int main() {
 }
 
 void handler(int sig) {
-    printf("got signal %d", sig);
+    printf("got signal %d\n", sig);
 }
