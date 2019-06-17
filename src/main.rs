@@ -8,9 +8,7 @@ use std::sync::atomic::{AtomicU32, Ordering};
 use lazy_static::lazy_static;
 use std::ptr::null;
 
-lazy_static! {
-    static ref CHILD: AtomicU32 = AtomicU32::new(0);
-}
+static  CHILD: AtomicU32 = AtomicU32::new(0);
 
 fn main() {
     let mut writer = Command::new("./write-forever.sh")
