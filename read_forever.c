@@ -1,15 +1,13 @@
 #include<stdio.h>
-#include<stdbool.h>
 #include<unistd.h>
 #include<stdlib.h>
-#include<string.h>
 
 int main() {
 
     char buf[256];
     int n;
      
-    while (true) {
+    while (1) {
         
         n = read(STDIN_FILENO, buf, sizeof(buf));
         if (n < 0) {
